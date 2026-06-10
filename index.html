@@ -194,29 +194,128 @@
       display: none;
     }
 
-    .cashier-item-card {
+    .cashier-items-grid {
       display: grid;
-      grid-template-columns: 96px 1fr auto;
-      gap: 18px;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .cashier-item-card {
+      width: 100%;
+      min-height: 245px;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      padding: 18px;
-      border-bottom: 1px solid var(--line);
-      min-height: 120px;
+      justify-content: flex-start;
+      gap: 12px;
+      padding: 14px;
+      border: 2px solid var(--line);
+      border-radius: 22px;
       background: #ffffff;
       color: #000000;
+      cursor: pointer;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease, opacity 0.12s ease, background 0.12s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cashier-item-card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.11);
+      border-color: var(--accent);
+    }
+
+    .cashier-item-card:active {
+      transform: scale(0.99);
+    }
+
+    .cashier-item-card.partial {
+      border-color: #f59e0b;
+      background: #fff7ed;
+      box-shadow: inset 0 0 0 2px rgba(245,158,11,0.16), 0 8px 20px rgba(0,0,0,0.07);
+    }
+
+    .cashier-item-card.done {
+      background: #111827;
+      border-color: #374151;
+      color: #ffffff;
+      opacity: 0.58;
+      filter: grayscale(1);
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,0.08);
+    }
+
+    .cashier-item-card.done::after {
+      content: "LISTO";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.35);
+      color: #ffffff;
+      font-size: 26px;
+      font-weight: 1000;
+      letter-spacing: 2px;
+      pointer-events: none;
+    }
+
+    .cashier-item-qty-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 48px;
+      background: var(--accent);
+      color: #ffffff;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 19px;
+      font-weight: 1000;
+      white-space: nowrap;
+      z-index: 2;
+      box-shadow: 0 5px 14px rgba(0,0,0,0.18);
+    }
+
+    .cashier-pending-count {
+      display: inline-block;
+      background: #f3f4f6;
+      color: #111827;
+      border: 1px solid var(--line);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .cashier-completed-box {
+      background: #ecfdf5;
+      border: 2px solid var(--success);
+      color: #065f46;
+      border-radius: 18px;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 900;
+      margin: 14px 0;
     }
 
     .cashier-item-image {
-      width: 96px;
-      height: 96px;
+      width: 100%;
+      height: 155px;
       border-radius: 18px;
       background: #f2f2f2;
       border: 1px solid var(--line);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 44px;
+      font-size: 70px;
       overflow: hidden;
+      flex: 0 0 auto;
     }
 
     .cashier-item-image img {
@@ -226,24 +325,36 @@
     }
 
     .cashier-item-name {
-      font-size: 30px;
-      font-weight: 900;
+      font-size: 23px;
+      font-weight: 1000;
       line-height: 1.15;
       color: #000000;
+      width: 100%;
+      z-index: 2;
+      position: relative;
     }
 
-    .cashier-item-detail {
-      color: #555555;
-      font-size: 20px;
-      margin-top: 8px;
-      font-weight: 500;
+    .cashier-item-card.done .cashier-item-name {
+      color: #ffffff;
+      text-decoration: line-through;
+      text-decoration-thickness: 4px;
     }
 
-    .cashier-item-subtotal {
-      font-size: 28px;
-      font-weight: bold;
-      color: var(--accent);
-      white-space: nowrap;
+    .cashier-item-status {
+      font-size: 15px;
+      font-weight: 800;
+      color: #6b7280;
+      z-index: 2;
+      position: relative;
+    }
+
+    .cashier-item-card.partial .cashier-item-status {
+      color: #92400e;
+    }
+
+    .cashier-item-card.done .cashier-item-status {
+      color: #e5e7eb;
+      text-decoration: line-through;
     }
 
     .cashier-total-large {
@@ -251,7 +362,7 @@
       text-align: right;
       color: var(--accent);
       font-weight: 900;
-      margin-top: 20px;
+      margin-top: 22px;
     }
 
     .container {
@@ -2098,15 +2209,8 @@
     }
 
     function showCashierOrderView(orderData) {
-      const itemsHtml = orderData.items.map(item => `
-        <div class="cart-item">
-          <div>
-            <strong>${item.name}</strong><br />
-            <small>Cantidad: ${item.quantity} · Precio: ${formatMoney(item.price)}</small>
-          </div>
-          <strong>${formatMoney(item.subtotal)}</strong>
-        </div>
-      `).join("");
+      currentScannedOrder = recalculateOrderTotals(orderData);
+      renderPrintTicket(currentScannedOrder);
 
       document.body.innerHTML = `
         <header>
@@ -2115,13 +2219,8 @@
         </header>
         <main class="container">
           <div class="modal-box" style="margin:20px auto; display:block;">
-            <h2>Pedido ${orderData.code || "SIN CÓDIGO"}</h2>
-            <p style="text-align:center; color:#9ca3af; margin-bottom:14px;">${orderData.date || ""}</p>
-            <div>${itemsHtml}</div>
-            <div class="total">Total estimado: ${formatMoney(orderData.total)}</div>
-            <p class="cashier-warning">El total mostrado es estimado. En caja se dará el precio total real.</p>
+            <div id="cashierResult">${renderCashierOrderHtml(currentScannedOrder)}</div>
             <div class="modal-actions">
-              <button class="show-btn" onclick="window.print()">Imprimir</button>
               <button class="close-btn" onclick="window.location.href=window.location.pathname">Volver al menú</button>
             </div>
           </div>
@@ -2183,22 +2282,93 @@
       return product && product.emoji ? product.emoji : "🍿";
     }
 
+    function recalculateOrderTotals(orderData) {
+      orderData.items = (orderData.items || []).filter(item => Number(item.quantity) > 0);
+      orderData.items.forEach(item => {
+        item.quantity = Number(item.quantity) || 0;
+        item.price = Number(item.price) || 0;
+        item.subtotal = item.price * item.quantity;
+      });
+      orderData.total = orderData.items.reduce((sum, item) => sum + item.subtotal, 0);
+      return orderData;
+    }
+
+    function getDoneQuantity(item) {
+      const quantity = Math.max(0, Number(item.quantity || 0));
+      const doneQuantity = Math.max(0, Number(item.doneQuantity || 0));
+      return Math.min(doneQuantity, quantity);
+    }
+
+    function removeCashierOrderItem(index) {
+      if (!currentScannedOrder || !Array.isArray(currentScannedOrder.items)) return;
+
+      const item = currentScannedOrder.items[index];
+      if (!item) return;
+
+      const quantity = Math.max(1, Number(item.quantity || 1));
+      const currentDone = getDoneQuantity(item);
+
+      // Cada click marca una unidad entregada.
+      // Ejemplo: x3 requiere 3 clicks para quedar tachado/listo.
+      // Si ya estaba completo, un click más lo reinicia para corregir errores.
+      item.doneQuantity = currentDone >= quantity ? 0 : currentDone + 1;
+      item.done = item.doneQuantity >= quantity;
+
+      recalculateOrderTotals(currentScannedOrder);
+      renderPrintTicket(currentScannedOrder);
+
+      const cashierResult = document.getElementById("cashierResult");
+      if (cashierResult) cashierResult.innerHTML = renderCashierOrderHtml(currentScannedOrder);
+    }
+
     function renderCashierOrderHtml(orderData) {
-      const itemsHtml = orderData.items.map(item => `
-        <div class="cashier-item-card">
-          <div class="cashier-item-image">${getProductImageHtml(item)}</div>
-          <div>
+      recalculateOrderTotals(orderData);
+
+      orderData.items.forEach(item => {
+        const quantity = Math.max(0, Number(item.quantity || 0));
+        item.doneQuantity = getDoneQuantity(item);
+        item.done = quantity > 0 && item.doneQuantity >= quantity;
+      });
+
+      const totalUnits = orderData.items.reduce((sum, item) => sum + Number(item.quantity || 0), 0);
+      const doneUnits = orderData.items.reduce((sum, item) => sum + getDoneQuantity(item), 0);
+      const pendingUnits = Math.max(0, totalUnits - doneUnits);
+
+      if (!orderData.items.length) {
+        return `
+          <h2 style="text-align:left; margin-bottom:12px; font-size:30px;">Pedido ${orderData.code}</h2>
+          <div class="cashier-completed-box">Pedido sin productos</div>
+          <button class="print-order-btn" onclick="clearCashierScanner()">Leer otro pedido</button>
+        `;
+      }
+
+      const itemsHtml = orderData.items.map((item, index) => {
+        const quantity = Math.max(1, Number(item.quantity || 1));
+        const doneQuantity = getDoneQuantity(item);
+        const isDone = doneQuantity >= quantity;
+        const isPartial = doneQuantity > 0 && !isDone;
+        const statusText = isDone
+          ? "Marcado como listo"
+          : isPartial
+            ? `Entregado ${doneQuantity}/${quantity}. Faltan ${quantity - doneQuantity}`
+            : `Presiona ${quantity === 1 ? "1 vez" : quantity + " veces"} al entregar`;
+
+        return `
+          <button type="button" class="cashier-item-card ${isDone ? "done" : isPartial ? "partial" : ""}" onclick="removeCashierOrderItem(${index})" title="Cada click marca una unidad entregada">
+            <span class="cashier-item-qty-badge">x${quantity}</span>
+            <div class="cashier-item-image">${getProductImageHtml(item)}</div>
             <div class="cashier-item-name">${item.name}</div>
-            <div class="cashier-item-detail">Cantidad: ${item.quantity} · Precio estimado: ${formatMoney(item.price)}</div>
-          </div>
-          <div class="cashier-item-subtotal">${formatMoney(item.subtotal)}</div>
-        </div>
-      `).join("");
+            <div class="cashier-item-status">${statusText}</div>
+          </button>
+        `;
+      }).join("");
 
       return `
         <h2 style="text-align:left; margin-bottom:12px; font-size:30px;">Pedido ${orderData.code}</h2>
-        ${itemsHtml}
-        <div class="cashier-total-large">Total estimado: ${formatMoney(orderData.total)}</div>
+        <div class="cashier-pending-count">Pendientes: ${pendingUnits} de ${totalUnits} producto${totalUnits === 1 ? "" : "s"}</div>
+        ${pendingUnits === 0 ? `<div class="cashier-completed-box">Pedido completado</div>` : ""}
+        <div class="cashier-items-grid">${itemsHtml}</div>
+        <div class="cashier-total-large">Total final estimado: ${formatMoney(orderData.total)}</div>
         <p class="cashier-warning" style="font-size:18px;">El total mostrado es estimado. En caja se dará el precio total real.</p>
         <button class="print-order-btn" onclick="printCurrentOrder()">Imprimir pedido</button>
       `;
@@ -2206,12 +2376,17 @@
 
     function renderPrintTicket(orderData) {
       const ticket = document.getElementById("printTicket");
-      const itemsHtml = orderData.items.map(item => `
-        <div class="ticket-row">
-          <div class="ticket-item-name">${item.quantity} x ${item.name}</div>
-          <div>${formatMoney(item.subtotal)}</div>
-        </div>
-      `).join("");
+      const itemsHtml = orderData.items.map(item => {
+        const quantity = Math.max(1, Number(item.quantity || 1));
+        const doneQuantity = getDoneQuantity(item);
+        const status = doneQuantity >= quantity ? "LISTO" : doneQuantity > 0 ? `LISTO ${doneQuantity}/${quantity}` : "";
+        return `
+          <div class="ticket-row">
+            <div class="ticket-item-name">${quantity} x ${item.name}</div>
+            <div>${status}</div>
+          </div>
+        `;
+      }).join("");
 
       ticket.innerHTML = `
         <div class="ticket-title">ALAMEDA CINEMAS</div>
@@ -4187,7 +4362,7 @@
     const closingDateInput = document.getElementById("closingShiftDate");
     if (closingDateInput && !closingDateInput.value) closingDateInput.value = new Date().toISOString().slice(0, 10);
 
-    const ALAMEDA_ADMIN_PIN = "2468";
+    const ALAMEDA_ADMIN_PIN = "2233";
     const ALAMEDA_ADMIN_SESSION_KEY = "alamedaAdminAccessOk";
 
     function solicitarAccesoInterno() {
