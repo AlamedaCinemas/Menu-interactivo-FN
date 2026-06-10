@@ -97,38 +97,7 @@
       color: white;
       border: 1px solid #4b5563;
     }
-
-    .hidden-menu-buttons {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      z-index: 9999;
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .hidden-menu-buttons button {
-      opacity: 0.18;
-      border: none;
-      color: white;
-      padding: 8px 10px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 800;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.18);
-    }
-
-    .hidden-menu-buttons button:hover {
-      opacity: 1;
-    }
-
-    .hidden-cashier-access {
-      background: #374151;
-    }
-
-    .cashier-section {
+.cashier-section {
       display: none;
       max-width: 980px;
       margin: 0 auto;
@@ -660,13 +629,7 @@
       margin-top: 10px;
       font-weight: 500;
     }
-
-
-    .hidden-closing-access {
-      background: #111827;
-    }
-
-    .closing-section {
+.closing-section {
       display: none;
       max-width: 1150px;
       margin: 0 auto;
@@ -1176,252 +1139,7 @@
         flex: 1;
       }
     }
-
-
-    .hidden-slider-access {
-      background: #111827;
-    }
-
-    .slider-admin-section {
-      display: none;
-      max-width: 1100px;
-      margin: 0 auto;
-      background: #ffffff;
-      color: #000000;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 22px;
-      box-shadow: var(--shadow);
-    }
-
-    .slider-admin-section h2 {
-      color: var(--accent);
-      text-align: center;
-      margin-bottom: 10px;
-      font-size: 30px;
-      font-weight: 900;
-    }
-
-    .slider-admin-section p {
-      color: var(--muted);
-      text-align: center;
-      margin-bottom: 16px;
-    }
-
-    .slider-admin-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .slider-admin-card {
-      background: #ffffff;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 16px;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.06);
-    }
-
-    .slider-admin-card h3 {
-      margin-bottom: 10px;
-      font-size: 20px;
-      font-weight: 900;
-    }
-
-    .slider-file-input {
-      display: none;
-    }
-
-    .slider-file-label,
-    .slider-action-btn {
-      border: none;
-      background: var(--accent);
-      color: #ffffff;
-      padding: 12px 14px;
-      border-radius: 12px;
-      font-weight: 900;
-      cursor: pointer;
-      display: inline-block;
-      text-align: center;
-      margin: 4px 0;
-    }
-
-    .slider-action-btn.dark {
-      background: #111827;
-    }
-
-    .slider-action-btn.danger {
-      background: var(--danger);
-    }
-
-    .slider-admin-textarea {
-      width: 100%;
-      min-height: 150px;
-      border: 2px solid var(--line);
-      border-radius: 14px;
-      padding: 12px;
-      font-size: 14px;
-      resize: vertical;
-      outline: none;
-      margin-top: 8px;
-    }
-
-    .slider-admin-textarea:focus,
-    .slider-share-input:focus {
-      border-color: var(--accent);
-    }
-
-    .slider-share-input {
-      width: 100%;
-      border: 2px solid var(--line);
-      border-radius: 14px;
-      padding: 12px;
-      font-size: 14px;
-      outline: none;
-      margin: 8px 0;
-    }
-
-    .slider-preview-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 10px;
-      margin-top: 12px;
-    }
-
-    .slider-preview-card {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      overflow: hidden;
-      background: #f8fafc;
-    }
-
-    .slider-preview-card img {
-      width: 100%;
-      height: 120px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .slider-preview-card span {
-      display: block;
-      padding: 8px;
-      font-size: 12px;
-      color: #374151;
-      font-weight: 700;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .slider-note {
-      margin-top: 10px;
-      padding: 10px;
-      border-radius: 12px;
-      background: var(--accent-soft);
-      color: #111827;
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 1.4;
-    }
-
-    .public-slides-viewer {
-      display: none;
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      background: #000000;
-      z-index: 99999;
-      overflow: hidden;
-      touch-action: pan-y;
-    }
-
-    .public-slides-viewer.active {
-      display: block;
-    }
-
-    .public-slides-stage {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .public-slide-image {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      opacity: 0;
-      transform: translateX(28px) scale(1.015);
-      transition: opacity 360ms ease, transform 420ms ease;
-      user-select: none;
-      pointer-events: none;
-    }
-
-    .public-slide-image.active {
-      opacity: 1;
-      transform: translateX(0) scale(1);
-    }
-
-    .public-slide-zone {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 50%;
-      z-index: 3;
-      cursor: pointer;
-      background: transparent;
-      border: 0;
-      padding: 0;
-      opacity: 0;
-    }
-
-    .public-slide-zone.left {
-      left: 0;
-    }
-
-    .public-slide-zone.right {
-      right: 0;
-    }
-
-    .public-slide-empty {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 100000;
-      background: #000000;
-      color: #ffffff;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
-      font-size: 20px;
-      font-weight: 800;
-    }
-
-    body.slider-viewer-mode {
-      padding: 0 !important;
-      overflow: hidden;
-      background: #000000;
-    }
-
-    body.slider-viewer-mode header,
-    body.slider-viewer-mode main,
-    body.slider-viewer-mode .cart-bar,
-    body.slider-viewer-mode .modal,
-    body.slider-viewer-mode .hidden-menu-buttons {
-      display: none !important;
-    }
-
-    @media (max-width: 800px) {
-      .slider-admin-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-  </style>
+</style>
   <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
@@ -1747,44 +1465,7 @@
         <div id="closingSummary" class="closing-summary-box">Procesa un ticket para ver el resumen.</div>
       </div>
     </section>
-
-    <section class="slider-admin-section" id="sliderAdminSection">
-      <h2>Creador de Slides</h2>
-      <p>Sube imágenes, revisa la vista previa y genera un link para mostrar solo las imágenes en modo presentación. El slide se mueve manualmente con clic/touch a la izquierda o derecha.</p>
-
-      <div class="slider-admin-grid">
-        <div class="slider-admin-card">
-          <h3>1. Subir fotos</h3>
-          <label class="slider-file-label" for="slideImageInput">Subir imágenes</label>
-          <input id="slideImageInput" class="slider-file-input" type="file" accept="image/*" multiple onchange="handleSlideImageUpload(event)">
-          <div class="slider-note" id="slideUploadStatus">
-            Puedes seleccionar varias imágenes. Para compartir en otros equipos, lo más confiable es guardar las imágenes en una carpeta del proyecto y usar rutas como <strong>slides/imagen1.jpg</strong>.
-          </div>
-          <div class="slider-preview-grid" id="slidePreviewGrid"></div>
-        </div>
-
-        <div class="slider-admin-card">
-          <h3>2. Generar link</h3>
-          <p style="text-align:left; margin-bottom:8px;">Opción recomendada para compartir en red: escribe una ruta o URL por línea.</p>
-          <textarea id="slidePathList" class="slider-admin-textarea" placeholder="Ejemplo:\nslides/promo1.jpg\nslides/promo2.jpg\nslides/promo3.jpg"></textarea>
-
-          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-            <button class="slider-action-btn" onclick="generateSlideLinkFromPaths()">Generar link con rutas</button>
-            <button class="slider-action-btn dark" onclick="generateLocalSlideLink()">Link de prueba con fotos subidas</button>
-            <button class="slider-action-btn danger" onclick="clearSlideBuilder()">Limpiar</button>
-          </div>
-
-          <input id="slideShareLink" class="slider-share-input" type="text" readonly placeholder="Aquí aparecerá el link generado">
-          <button class="slider-action-btn dark" onclick="copySlideShareLink()">Copiar link</button>
-
-          <div class="slider-note">
-            <strong>Importante:</strong> el link con fotos subidas usa memoria del navegador y sirve principalmente en la misma computadora. Para compartir con otros equipos, guarda las imágenes dentro del proyecto, por ejemplo en <strong>slides/</strong>, y genera el link con rutas.
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
+</main>
 
   <div class="cart-bar" id="cartBar">
     <div class="cart-content">
@@ -1835,291 +1516,7 @@
       </div>
     </div>
   </div>
-
-
-
-  <section id="publicSlidesViewer" class="public-slides-viewer" aria-label="Presentación de imágenes">
-    <div id="publicSlidesStage" class="public-slides-stage"></div>
-    <button class="public-slide-zone left" onclick="previousPublicSlide()" aria-label="Anterior"></button>
-    <button class="public-slide-zone right" onclick="nextPublicSlide()" aria-label="Siguiente"></button>
-  </section>
-  <div id="publicSlidesEmpty" class="public-slide-empty">No se encontraron imágenes para mostrar.</div>
-
-
-  <script>
-
-
-    let slideUploadedImages = [];
-    let publicSlideImages = [];
-    let publicSlideIndex = 0;
-    let publicSlideTouchStartX = 0;
-
-    function hideSliderAdminSection() {
-      const sliderAdmin = document.getElementById("sliderAdminSection");
-      if (sliderAdmin) sliderAdmin.style.display = "none";
-    }
-
-    function showSliderAdminMode() {
-      document.body.classList.remove("slider-viewer-mode");
-      document.getElementById("clientSection").style.display = "none";
-      document.getElementById("cashierSection").style.display = "none";
-      const closingSection = document.getElementById("closingSection");
-      if (closingSection) closingSection.style.display = "none";
-      const sliderAdmin = document.getElementById("sliderAdminSection");
-      if (sliderAdmin) sliderAdmin.style.display = "block";
-      const cartBar = document.getElementById("cartBar");
-      if (cartBar) cartBar.style.display = "none";
-      closeCart();
-      const upsell = document.getElementById("upsellModal");
-      if (upsell) upsell.style.display = "none";
-      const welcome = document.getElementById("welcomeModal");
-      if (welcome) welcome.style.display = "none";
-    }
-
-    function getBaseAppUrl() {
-      return `${window.location.origin}${window.location.pathname}`;
-    }
-
-    function base64UrlEncode(value) {
-      return btoa(unescape(encodeURIComponent(value)))
-        .replace(/\+/g, "-")
-        .replace(/\//g, "_")
-        .replace(/=+$/g, "");
-    }
-
-    function base64UrlDecode(value) {
-      let input = String(value || "").replace(/-/g, "+").replace(/_/g, "/");
-      while (input.length % 4) input += "=";
-      return decodeURIComponent(escape(atob(input)));
-    }
-
-    function compressSlideImageFile(file, maxWidth = 1600, maxHeight = 1000, quality = 0.86) {
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => {
-          const img = new Image();
-          img.onload = () => {
-            let width = img.width;
-            let height = img.height;
-            const ratio = Math.min(maxWidth / width, maxHeight / height, 1);
-            width = Math.round(width * ratio);
-            height = Math.round(height * ratio);
-
-            const canvas = document.createElement("canvas");
-            canvas.width = width;
-            canvas.height = height;
-            const ctx = canvas.getContext("2d");
-            ctx.fillStyle = "#000";
-            ctx.fillRect(0, 0, width, height);
-            ctx.drawImage(img, 0, 0, width, height);
-            resolve(canvas.toDataURL("image/jpeg", quality));
-          };
-          img.onerror = reject;
-          img.src = reader.result;
-        };
-        reader.onerror = reject;
-        reader.readAsDataURL(file);
-      });
-    }
-
-    async function handleSlideImageUpload(event) {
-      const files = Array.from(event.target.files || []);
-      const status = document.getElementById("slideUploadStatus");
-      if (!files.length) return;
-
-      slideUploadedImages = [];
-      renderSlidePreview();
-      status.textContent = `Preparando ${files.length} imagen(es)...`;
-
-      for (let index = 0; index < files.length; index++) {
-        const file = files[index];
-        try {
-          const dataUrl = await compressSlideImageFile(file);
-          slideUploadedImages.push({ name: file.name, src: dataUrl });
-          status.textContent = `Preparando imagen ${index + 1} de ${files.length}...`;
-          renderSlidePreview();
-        } catch (error) {
-          console.error(error);
-        }
-      }
-
-      status.textContent = `Listo: ${slideUploadedImages.length} imagen(es) cargadas para vista previa.`;
-    }
-
-    function renderSlidePreview() {
-      const grid = document.getElementById("slidePreviewGrid");
-      if (!grid) return;
-
-      if (!slideUploadedImages.length) {
-        grid.innerHTML = "";
-        return;
-      }
-
-      grid.innerHTML = slideUploadedImages.map((image, index) => `
-        <div class="slider-preview-card">
-          <img src="${image.src}" alt="Slide ${index + 1}">
-          <span>${index + 1}. ${image.name || "Imagen"}</span>
-        </div>
-      `).join("");
-    }
-
-    function generateLocalSlideLink() {
-      if (!slideUploadedImages.length) {
-        alert("Primero sube una o más imágenes.");
-        return;
-      }
-
-      const albumKey = `alamedaSlides_${Date.now()}`;
-      const payload = {
-        createdAt: new Date().toISOString(),
-        images: slideUploadedImages.map(item => item.src)
-      };
-
-      try {
-        localStorage.setItem(albumKey, JSON.stringify(payload));
-      } catch (error) {
-        alert("Las imágenes son demasiado pesadas para guardarse en el navegador. Usa rutas en la carpeta slides/.");
-        return;
-      }
-
-      const link = `${getBaseAppUrl()}?modo=slides&album=${encodeURIComponent(albumKey)}`;
-      document.getElementById("slideShareLink").value = link;
-    }
-
-    function generateSlideLinkFromPaths() {
-      const raw = document.getElementById("slidePathList").value;
-      const paths = raw.split(/\r?\n/).map(line => line.trim()).filter(Boolean);
-
-      if (!paths.length) {
-        alert("Escribe al menos una ruta o URL de imagen.");
-        return;
-      }
-
-      const encoded = base64UrlEncode(JSON.stringify(paths));
-      const link = `${getBaseAppUrl()}?modo=slides&imgs=${encoded}`;
-      document.getElementById("slideShareLink").value = link;
-    }
-
-    function copySlideShareLink() {
-      const input = document.getElementById("slideShareLink");
-      if (!input || !input.value) {
-        alert("Primero genera un link.");
-        return;
-      }
-      input.select();
-      input.setSelectionRange(0, 99999);
-      navigator.clipboard?.writeText(input.value).then(() => {
-        alert("Link copiado.");
-      }).catch(() => {
-        document.execCommand("copy");
-        alert("Link copiado.");
-      });
-    }
-
-    function clearSlideBuilder() {
-      slideUploadedImages = [];
-      const fileInput = document.getElementById("slideImageInput");
-      const paths = document.getElementById("slidePathList");
-      const link = document.getElementById("slideShareLink");
-      const status = document.getElementById("slideUploadStatus");
-      if (fileInput) fileInput.value = "";
-      if (paths) paths.value = "";
-      if (link) link.value = "";
-      if (status) status.innerHTML = 'Puedes seleccionar varias imágenes. Para compartir en otros equipos, lo más confiable es guardar las imágenes en una carpeta del proyecto y usar rutas como <strong>slides/imagen1.jpg</strong>.';
-      renderSlidePreview();
-    }
-
-    function loadPublicSlideImagesFromUrl() {
-      const params = new URLSearchParams(window.location.search);
-      const album = params.get("album");
-      const encodedImages = params.get("imgs");
-
-      if (encodedImages) {
-        try {
-          const paths = JSON.parse(base64UrlDecode(encodedImages));
-          return Array.isArray(paths) ? paths.filter(Boolean) : [];
-        } catch (error) {
-          console.error(error);
-          return [];
-        }
-      }
-
-      if (album) {
-        try {
-          const stored = JSON.parse(localStorage.getItem(album) || "{}");
-          return Array.isArray(stored.images) ? stored.images.filter(Boolean) : [];
-        } catch (error) {
-          console.error(error);
-          return [];
-        }
-      }
-
-      return [];
-    }
-
-    function showPublicSlidesViewer() {
-      publicSlideImages = loadPublicSlideImagesFromUrl();
-      publicSlideIndex = 0;
-      document.body.classList.add("slider-viewer-mode");
-
-      const viewer = document.getElementById("publicSlidesViewer");
-      const empty = document.getElementById("publicSlidesEmpty");
-      const stage = document.getElementById("publicSlidesStage");
-
-      if (!publicSlideImages.length) {
-        if (empty) empty.style.display = "flex";
-        if (viewer) viewer.classList.remove("active");
-        return;
-      }
-
-      if (empty) empty.style.display = "none";
-      if (viewer) viewer.classList.add("active");
-      if (stage) {
-        stage.innerHTML = publicSlideImages.map((src, index) => `
-          <img class="public-slide-image ${index === 0 ? "active" : ""}" src="${src}" alt="">
-        `).join("");
-      }
-    }
-
-    function updatePublicSlide() {
-      const images = document.querySelectorAll(".public-slide-image");
-      images.forEach((img, index) => {
-        img.classList.toggle("active", index === publicSlideIndex);
-      });
-    }
-
-    function nextPublicSlide() {
-      if (!publicSlideImages.length) return;
-      publicSlideIndex = (publicSlideIndex + 1) % publicSlideImages.length;
-      updatePublicSlide();
-    }
-
-    function previousPublicSlide() {
-      if (!publicSlideImages.length) return;
-      publicSlideIndex = (publicSlideIndex - 1 + publicSlideImages.length) % publicSlideImages.length;
-      updatePublicSlide();
-    }
-
-    document.addEventListener("keydown", event => {
-      if (!document.body.classList.contains("slider-viewer-mode")) return;
-      if (event.key === "ArrowRight") nextPublicSlide();
-      if (event.key === "ArrowLeft") previousPublicSlide();
-    });
-
-    document.addEventListener("touchstart", event => {
-      if (!document.body.classList.contains("slider-viewer-mode")) return;
-      publicSlideTouchStartX = event.touches[0].clientX;
-    }, { passive: true });
-
-    document.addEventListener("touchend", event => {
-      if (!document.body.classList.contains("slider-viewer-mode")) return;
-      const endX = event.changedTouches[0].clientX;
-      const diff = endX - publicSlideTouchStartX;
-      if (Math.abs(diff) < 40) return;
-      if (diff < 0) nextPublicSlide();
-      else previousPublicSlide();
-    }, { passive: true });
-
+<script>
     const products = [
       { id: 8, name: "Combo Compartido", category: "Combos", price: 265, description: "1 paloma mediana + 2 refrescos de 900 ml.", emoji: "⭐" },
       { id: 9, name: "Combo Hot Dog", category: "Combos", price: 270, description: "1 paloma mediana + 1 refresco de 900 ml + hot dog clásico.", emoji: "🌭" },
@@ -2763,7 +2160,6 @@
       document.getElementById("cashierSection").style.display = "none";
       const closingSection = document.getElementById("closingSection");
       if (closingSection) closingSection.style.display = "none";
-      hideSliderAdminSection();
       document.getElementById("cartBar").style.display = "block";
     }
 
@@ -2772,7 +2168,6 @@
       document.getElementById("cashierSection").style.display = "block";
       const closingSection = document.getElementById("closingSection");
       if (closingSection) closingSection.style.display = "none";
-      hideSliderAdminSection();
       document.getElementById("cartBar").style.display = "none";
       closeCart();
       document.getElementById("upsellModal").style.display = "none";
@@ -3481,7 +2876,6 @@
       document.getElementById("clientSection").style.display = "none";
       document.getElementById("cashierSection").style.display = "none";
       document.getElementById("closingSection").style.display = "block";
-      hideSliderAdminSection();
       document.getElementById("cartBar").style.display = "none";
       closeCart();
       document.getElementById("upsellModal").style.display = "none";
@@ -4793,25 +4187,63 @@
     const closingDateInput = document.getElementById("closingShiftDate");
     if (closingDateInput && !closingDateInput.value) closingDateInput.value = new Date().toISOString().slice(0, 10);
 
+    const ALAMEDA_ADMIN_PIN = "2468";
+    const ALAMEDA_ADMIN_SESSION_KEY = "alamedaAdminAccessOk";
+
+    function solicitarAccesoInterno() {
+      if (sessionStorage.getItem(ALAMEDA_ADMIN_SESSION_KEY) === "1") return true;
+
+      const pin = prompt("PIN de acceso Alameda");
+      if (pin === ALAMEDA_ADMIN_PIN) {
+        sessionStorage.setItem(ALAMEDA_ADMIN_SESSION_KEY, "1");
+        return true;
+      }
+
+      if (pin !== null) alert("PIN incorrecto");
+      return false;
+    }
+
+    function abrirModoInterno(modo) {
+      if (!solicitarAccesoInterno()) return;
+      window.location.href = `${window.location.pathname}?modo=${modo}`;
+    }
+
+    document.addEventListener("keydown", event => {
+      const tecla = (event.key || "").toLowerCase();
+
+      if (event.ctrlKey && event.shiftKey && tecla === "c") {
+        event.preventDefault();
+        abrirModoInterno("caja");
+      }
+
+      if (event.ctrlKey && event.shiftKey && tecla === "f") {
+        event.preventDefault();
+        abrirModoInterno("cierre");
+      }
+    });
+
     const params = new URLSearchParams(window.location.search);
-    if (params.get("modo") === "caja") {
-      showCashierScanner();
-    } else if (params.get("modo") === "cierre") {
-      showClosingMode();
-    } else if (params.get("modo") === "slidesAdmin" || params.get("modo") === "slides-admin") {
-      showSliderAdminMode();
-    } else if (params.get("modo") === "slides") {
-      showPublicSlidesViewer();
+    const modo = (params.get("modo") || "").toLowerCase();
+
+    if (modo === "caja") {
+      if (solicitarAccesoInterno()) {
+        showCashierScanner();
+      } else {
+        window.history.replaceState({}, "", window.location.pathname);
+        showWelcomeModal();
+      }
+    } else if (modo === "cierre") {
+      if (solicitarAccesoInterno()) {
+        showClosingMode();
+      } else {
+        window.history.replaceState({}, "", window.location.pathname);
+        showWelcomeModal();
+      }
     } else {
       showWelcomeModal();
     }
 
     runTests();
   </script>
-<div class="hidden-menu-buttons" aria-label="Accesos ocultos">
-  <button class="hidden-cashier-access" onclick="showCashierScanner()" title="Modo caja">Caja</button>
-  <button class="hidden-closing-access" onclick="showClosingMode()" title="Fin de día">Fin día</button>
-  <button class="hidden-slider-access" onclick="showSliderAdminMode()" title="Crear slides">Slides</button>
-</div>
 </body>
 </html>
