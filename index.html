@@ -4362,9 +4362,8 @@
     const closingDateInput = document.getElementById("closingShiftDate");
     if (closingDateInput && !closingDateInput.value) closingDateInput.value = new Date().toISOString().slice(0, 10);
 
-    const ALAMEDA_ADMIN_PIN = "2233";
+    const ALAMEDA_ADMIN_PIN = "202600";
     const ALAMEDA_ADMIN_SESSION_KEY = "alamedaAdminAccessOk";
-
     function solicitarAccesoInterno() {
       if (sessionStorage.getItem(ALAMEDA_ADMIN_SESSION_KEY) === "1") return true;
 
